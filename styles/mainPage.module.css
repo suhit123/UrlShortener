@@ -1,0 +1,222 @@
+.mainPage_entire{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.mainPage_entire img{
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    width: auto;
+    height: 100vh;
+}
+.mainPage_entire_data{
+    position: fixed;
+    top: 50%;
+    left: 10vw;
+    display: flex;
+    flex-direction: column;
+}
+.mainPage_entire_data h1{
+    color: rgb(95, 95, 95);
+}
+.enterBigUrl{
+    display: flex;
+}
+.enterBigUrl input[type="text"]{
+    font-size: 14px;
+    padding: 15px 20px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.685);
+    width: 32vw;
+    border-radius: 5px 0px 0px 5px;
+}
+.enterBigUrl button{
+    font-size: 15px;
+    background-color: rgb(221, 130, 11);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0px 20px;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.685);
+
+}
+.message{
+    margin:10px 0px;
+}
+.success_url{
+    display: flex;
+}
+.success_url p{
+    margin: 0px;
+    font-size: 14px;
+}
+.success_url button{
+    font-size: 16px;
+    padding:0px 10px;
+    background: none;
+    border: none;
+    color: green;
+    cursor: pointer;
+}
+.error_div{
+    width: 100%;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.error_div img{
+    width: 500px ;
+    height: auto;
+}
+
+@media screen and (max-width:1100px){
+    .mainPage_entire img{
+        position: fixed;
+        right: -30%;
+        top: 0px;
+        width: auto;
+        height: 100vh;
+    }
+}
+@media screen and (max-height:500px){
+    .mainPage_entire img{
+        position: fixed;
+        right: 0%;
+        top: 0px;
+        width: auto;
+        height: 100vh;
+    }
+    .mainPage_entire_data{
+        top: 40%;
+    }
+    .mainPage_entire_data h1{
+        color: rgb(95, 95, 95);
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+    .enterBigUrl{
+        display: flex;
+    }
+    .enterBigUrl input[type="text"]{
+        font-size: 12px;
+        padding: 15px 20px;
+        outline: none;
+        border: none;
+        box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.404);
+        width: 40vw;
+        border-radius: 5px 0px 0px 5px;
+    }
+    .enterBigUrl button{
+        font-size: 12px;
+        background-color: rgb(221, 130, 11);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 0px 20px;
+        box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.384);
+    
+    }
+    .message{
+        margin:10px 0px;
+    }
+    .message p{
+        font-size: 12px;
+        margin: 0px;
+    }
+    .success_url{
+        display: flex;
+    }
+    .success_url p{
+        margin: 0px;
+        font-size: 12px;
+    }
+    .success_url button{
+        font-size: 12px;
+        padding: 0px 10px;
+        background: none;
+        border: none;
+        color: green;
+        cursor: pointer;
+    }
+    .error_div img{
+        width: 300px;
+    }
+}
+@media screen and (max-width:550px){
+    .mainPage_entire{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .mainPage_entire img{
+        position: fixed;
+        width: 300vw;
+        left: -130%;
+        top: -10%;
+        height: auto;
+    }
+    .mainPage_entire_data{
+        position: fixed;
+        top: 60%;
+        left: 5%;
+        display: flex;
+        flex-direction: column;
+    }
+    .mainPage_entire_data h1{
+        color: rgb(95, 95, 95);
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+    .enterBigUrl{
+        display: flex;
+    }
+    .enterBigUrl input[type="text"]{
+        font-size: 12px;
+        padding: 15px 20px;
+        outline: none;
+        border: none;
+        box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.404);
+        width: 55vw;
+        border-radius: 5px 0px 0px 5px;
+    }
+    .enterBigUrl button{
+        font-size: 12px;
+        background-color: rgb(221, 130, 11);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 0px 20px;
+        box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.384);
+    
+    }
+    .message{
+        margin:10px 0px;
+    }
+    .message p{
+        font-size: 12px;
+        margin: 0px;
+    }
+    .success_url{
+        display: flex;
+    }
+    .success_url p{
+        margin: 0px;
+        font-size: 12px;
+    }
+    .success_url button{
+        font-size: 12px;
+        padding: 0px 10px;
+        background: none;
+        border: none;
+        color: green;
+        cursor: pointer;
+    }
+    .error_div img{
+        width: 300px;
+    }
+}
