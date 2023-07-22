@@ -28,7 +28,7 @@ export default function Home() {
       console.log(res.data);
       let urlstring=res.data.shortenUrl;
       urlstring=urlstring.trim();
-      const url=process.env.BASE_URL+"/"+urlstring;
+      const url=process.env.VERCEL_URL+"/"+urlstring;
       setUrl(url);
       setSuccess(true);
       setMessage(false);
