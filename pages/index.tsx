@@ -7,12 +7,14 @@ import shortenerImage from '@/resources/urlshortner.png'
 import { useState } from 'react'
 import axios from 'axios'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import QRCode from "react-qr-code";
 export default function Home() {
   const [bigurl,setBigurl]=useState('');
   const [message,setMessage]:any=useState();
   const [success,setSuccess]=useState(false);
   const [loader,setLoader]=useState(false);
   const[copy,setCopy]=useState(false);
+  const[qrcheck,setQrcheck]=useState(true);
   const[url,setUrl]=useState('')
   const handleChange=(e:any)=>{
     setBigurl(e.target.value);
@@ -62,9 +64,19 @@ export default function Home() {
             </div>
             <div className={styles.message}><p>{message}</p> </div>{success?<div className={styles.success_url}>
         <p>{url}</p>
+        {qrcheck?<></>:<div className={styles.entire_blur} 
+        onClick={()=>setQrcheck(!qrcheck)}
+        ></div>}
         <CopyToClipboard text={url} >
           {copy?<button>Copied ✅</button>:<button onClick={()=>setCopy(true)}>Copy</button>}
         </CopyToClipboard>
+        <QRCode
+        onClick={()=>setQrcheck(!qrcheck)}
+        size={256}
+        className={qrcheck?styles.qr_min:styles.qr_max}
+        value={url}
+        viewBox={`0 0 256 256`}
+        />
       </div>:<></>}
           </div>
         </div>
