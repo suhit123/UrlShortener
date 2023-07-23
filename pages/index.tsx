@@ -7,15 +7,20 @@ import shortenerImage from '@/resources/urlshortner.png'
 import { useState } from 'react'
 import axios from 'axios'
 import {CopyToClipboard} from 'react-copy-to-clipboard';
-import QRCode from "react-qr-code";
+import QRCode from "qrcode";
 export default function Home() {
-  const [bigurl,setBigurl]=useState('');
+  const [bigurl,setBigurl]=useState<string>('');
   const [message,setMessage]:any=useState();
-  const [success,setSuccess]=useState(false);
-  const [loader,setLoader]=useState(false);
-  const[copy,setCopy]=useState(false);
-  const[qrcheck,setQrcheck]=useState(true);
-  const[url,setUrl]=useState('')
+  const [success,setSuccess]=useState<boolean>(false);
+  const [loader,setLoader]=useState<boolean>(false);
+  const[copy,setCopy]=useState<boolean>(false);
+  const[qrcheck,setQrcheck]=useState<boolean>(true);
+  const[url,setUrl]=useState<string>('')
+  const[qrimage,setQrimage]=useState<string>('')
+  const generate=(url:any)=>{
+    QRCode.toDataURL(`${url}`).then(setQrimage)
+    console.log(qrimage)
+  }
   const handleChange=(e:any)=>{
     setBigurl(e.target.value);
   }
@@ -35,6 +40,7 @@ export default function Home() {
       setSuccess(true);
       setMessage(false);
       setCopy(false);
+      generate(url);
     })
     .catch((err)=>{
       if(err.response.data.message==="Invalid URL format!"){
@@ -70,15 +76,30 @@ export default function Home() {
         <CopyToClipboard text={url} >
           {copy?<button>Copied ✅</button>:<button onClick={()=>setCopy(true)}>Copy</button>}
         </CopyToClipboard>
-        <QRCode
-        onClick={()=>setQrcheck(!qrcheck)}
-        size={256}
-        className={qrcheck?styles.qr_min:styles.qr_max}
-        value={url}
-        viewBox={`0 0 256 256`}
-        />
-      </div>:<></>}
+        <div>{qrcheck ? (
+            <Image
+              onClick={() => setQrcheck(!qrcheck)}
+              className={styles.qr_min}
+              src={qrimage}
+              alt="qrcode"
+              style={{ width: "30px", height: "30px",position:'relative'}} // Set the desired size with inline styles
+              width={100}
+              height={100}
+            />
+          ) : (
+            <Image
+              onClick={() => setQrcheck(!qrcheck)}
+              className={styles.qr_max}
+              src={qrimage}
+              alt="qrcode"
+              style={{ width: "300px", height: "300px",position:'fixed',top:'50%',left:"50%",transform:'transalte(-50%,-50%)'}} // Set the desired size with inline styles
+              width={500}
+              height={500}
+            />
+          )}
           </div>
+      </div>:<></>}
+          </div>'  
         </div>
       </main>
     </>
